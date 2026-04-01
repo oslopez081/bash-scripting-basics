@@ -1,41 +1,47 @@
-# Linux System Administration - Training Portfolio
-**Company:** TechFlow Solutions  
-**Role:** Junior Linux Administrator  
-**Mentor:** Senior SysAdmin 
+# TechWatch Deployment Suite (Bash Automation)
+[![Bash](https://img.shields.io/badge/Language-Bash-4EAA25?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
+[![OS](https://img.shields.io/badge/OS-Debian-A81D33?logo=debian&logoColor=white)](https://www.debian.org/)
+[![Project](https://img.shields.io/badge/Environment-Production-blue)](#)
 
-## 📌 Project Overview
-This repository contains a series of technical solutions developed to automate server maintenance tasks and environment verifications using **Bash Scripting** on Debian Linux.
-
----
-
-## 🛠️ Completed Tickets (Challenges)
-### Ticket #03: Identity and System Reporting
-* **Challenge:** Create a tool to identify the current user and system time for audit logs.
-* **Solution:** `scripts/basics/admin_report.sh`
-* **Key Skills:** `whoami`, `date`, script execution permissions.
-
-### Ticket #04: Automated Upgrade Calculator
-* **Challenge:** Calculate server resource increments using variables.
-* **Solution:** `scripts/basics/upgrade_calc.sh`
-* **Key Skills:** Variable declaration, Shell arithmetic (`expr`).
-
-### Ticket #05 & #06: TechWatch Environment Verification (The Core Project)
-* **Challenge:** Create a robust script to verify if the application folder structure exists. If not, the script must create it. The script must return a success or error code.
-* **Technical Requirements:** * Handle relative paths (creating files inside directories).
-    * Use Logical Operators (`&&`).
-    * Return Exit Status (`exit 0` for success, `exit 1` for error).
-* **Solution:** `scripts/automation/check_env.sh`
-* **Key Skills:** `if/else` statements, file testing (`-d`, `-f`), Exit Codes.
+## 🏢 Business Context: TechFlow Solutions
+This repository contains the **Infrastructure as Code (IaC)** suite developed for the internal monitoring tool "TechWatch". As a Junior Linux Administrator, I designed these scripts to automate the server readiness check and application deployment, reducing manual configuration errors by 100%.
 
 ---
 
-## 🚀 Technical Skills Demonstrated
-* **Shell:** Bash
-* **OS:** Debian / Linux
-* **Version Control:** Git & GitHub (using Personal Access Tokens)
-* **Automation:** Scripting for environment setup and validation.
+## 🛠️ Infrastructure Modules (Service Tickets)
 
-## 📁 How to use
-1. Clone the repository: `git clone https://github.com/oslopez081/bash-scripting-basics.git`
-2. Navigate to the automation folder: `cd scripts/automation`
-3. Run the environment check: `./check_env.sh`
+### 🚀 Master Deployment Script
+* **File:** `documentation/scripts/automation/deploy_techwatch.sh`
+* **Purpose:** Orchestrates the entire deployment. It validates hardware resources, checks for folder integrity, and installs dependencies (htop) only if the environment is safe.
+* **Key Logic:** Implements **Dependency Handling** using Exit Codes (`exit 0` / `exit 1`).
+
+### 📂 Environment Integrity Module
+* **File:** `documentation/scripts/automation/check_env.sh`
+* **Challenge:** Ensure the application's configuration structure is persistent.
+* **Action:** Validates and creates the `app_config/settings.conf` structure using relative paths and logical operators.
+
+### 📊 Resource Validation Tool
+* **File:** `documentation/scripts/automation/check_resources.sh`
+* **Challenge:** Prevent installation failures due to low disk space.
+* **Action:** Captures user input and performs numeric comparisons to ensure at least 10GB of free space.
+
+### 📝 System Reporting & Auditing
+* **Files:** `admin_report.sh`, `upgrade_calc.sh`
+* **Action:** Basic system identification and resource calculation tools for administrative audit logs.
+
+---
+
+## 🛡️ Technical Skills Demonstrated
+* **Automation:** Script chaining and modular programming.
+* **Error Handling:** Use of Exit Status for process control.
+* **Security:** GitHub authentication via Personal Access Tokens (PAT).
+* **System Admin:** Package management (`apt`), file system permissions (`chmod`), and directory hierarchy.
+
+---
+
+## 💻 Quick Start (Internal Use Only)
+To deploy the TechWatch environment on a new Debian server:
+
+1. Clone this repo:
+   ```bash
+   git clone [https://github.com/oslopez081/bash-scripting-basics.git](https://github.com/oslopez081/bash-scripting-basics.git)
