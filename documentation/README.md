@@ -42,6 +42,15 @@ This repository contains the **Infrastructure as Code (IaC)** suite developed fo
 ## 💻 Quick Start (Internal Use Only)
 To deploy the TechWatch environment on a new Debian server:
 
+---
+
+## ⚙️ Global System Integration (Professional Access)
+To allow any SysAdmin to run the deployment from any directory without typing the full path, I implemented a **Symbolic Link** in the system binaries:
+
+```bash
+# Create a global command named 'techwatch'
+sudo ln -s $(pwd)/documentation/scripts/automation/deploy_techwatch.sh /usr/local/bin/techwatch
+
 1. Clone this repo:
    ```bash
    git clone [https://github.com/oslopez081/bash-scripting-basics.git](https://github.com/oslopez081/bash-scripting-basics.git)
